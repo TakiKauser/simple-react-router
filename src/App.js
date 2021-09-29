@@ -1,34 +1,44 @@
+import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
-import { Switch } from 'react-router-dom/cjs/react-router-dom.min';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
-import About from './components/About/About';
 import Friends from './components/Friends/Friends';
+import About from './components/About/About';
 import Home from './components/Home/Home';
 import NotFound from './components/NotFound/NotFound';
+import Header from './components/Header/Header';
+import FriendDetails from './components/FriendDetails/FriendDetails';
+import Culture from './components/Culture/Culture';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <Router>
+        <Header></Header>
         <Switch>
           <Route path="/home">
             <Home></Home>
           </Route>
-          <Route path="/about">
-            <About></About>
+          <Route exact path="/">
+            <Home></Home>
           </Route>
           <Route path="/friends">
             <Friends></Friends>
           </Route>
-          <Route exact path="/">
-            <Home></Home>
+          <Route path="/friend/:friendID">
+            <FriendDetails></FriendDetails>
           </Route>
-          <Route>
+          <Route exact path="/about">
+            <About></About>
+          </Route>
+          <Route exact path="/about/culture">
+            <Culture></Culture>
+          </Route>
+          <Route path="*">
             <NotFound></NotFound>
           </Route>
         </Switch>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }

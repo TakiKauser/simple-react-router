@@ -1,0 +1,7 @@
+.friend-card{
+    color: rgba(0, 0, 0, 0.884);
+    background-color: rgba(46, 139, 86, 0.082);
+    /* border: 1px dashed teal; */
+    border-radius: 7px;
+    box-shadow: 5px 10px 5px grey;
+}
